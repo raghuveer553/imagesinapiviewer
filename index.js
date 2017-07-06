@@ -1,8 +1,9 @@
+require('dotenv').config();
 const Promise = require('bluebird');
 const express = require('express');
 
 const app = express();
-app.set('port', 4000);
+app.set('port', process.env.PORT || 4000);
 app.set('view engine', 'ejs');
 
 app.listen(app.get('port'), function() {
