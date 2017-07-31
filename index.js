@@ -2,6 +2,7 @@ require('dotenv').config();
 const Promise = require('bluebird');
 const express = require('express');
 const path = require('path');
+const ApiService = require('./src/services/ApiService');
 
 // var webpack = require('webpack');
 // var tempConfig = require('./webpack.config.js');
@@ -19,5 +20,22 @@ app.listen(app.get('port'), ()=> {
 
 app.get('/',(req,res)=>{
   res.render(__dirname+"/views/homepage");
+});
+
+/**
+ * GET api call with query params -
+ * url - encoded url endpoint for which GET call has to be made
+ */
+app.get('/makeapicall',(req,res)=>{
+  let urlInEncodedFormat = req.query.url;
+  let urlInNormalFormat = decodeURIComponent(urlInEncodedFormat);
+  ApiService.makeGETApiCall(urlInNormalFormat).then(
+    (responseDict)=>{
+      res.send(200,responseDict);
+    },
+    (error)=>{
+      res.send(400,error);
+    }
+  )
 });
 
