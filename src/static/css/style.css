@@ -86,7 +86,11 @@ body{
     width: 50%;
     background: lightgray;
     height: 100%;
-    float: left;    
+    float: left; 
+    overflow: scroll;   
+}
+.imagesBox img {
+    object-fit: contain;
 }
 
 .jsonBox {

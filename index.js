@@ -31,7 +31,7 @@ app.get('/makeapicall',(req,res)=>{
   let urlInNormalFormat = decodeURIComponent(urlInEncodedFormat);
   ApiService.makeGETApiCall(urlInNormalFormat).then(
     (responseDict)=>{
-      res.send(200,responseDict);
+      res.status(200).send(responseDict)      
     },
     (error)=>{
       res.send(400,error);
