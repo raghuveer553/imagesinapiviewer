@@ -11,15 +11,12 @@ class MyButton extends React.Component{
   render(){
       if(this.props.isApiCallHappening){
         return (
-          <input type="button" value={this.props.buttonTitle} className='MyButton disabled' onClick={ ()=>{this.buttonClicked()} }>
+          <input type="button" value={this.props.buttonTitle} className='MyButton disabled' onClick={ (e)=>{ this.props.buttonClicked(this.props.buttonTitle) } }>
           </input>
         );
       }else{
         return (
-          <input type="button" value={this.props.buttonTitle} className='MyButton' onClick={ ()=>{
-            this.props.onSubmitClick()
-          }
-          }>
+          <input type="button" value={this.props.buttonTitle} className='MyButton' onClick={ (e)=>{ this.props.buttonClicked(this.props.buttonTitle) } }>
           </input>
         );        
       }

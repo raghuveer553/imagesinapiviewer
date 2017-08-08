@@ -26,7 +26,7 @@ class InputWithTitle extends React.Component{
   }
 
   tempOnInputTextChange(e){    
-    this.props.onInputTextChange(e);
+    // this.props.onInputTextChange(e);
   }
 }
 

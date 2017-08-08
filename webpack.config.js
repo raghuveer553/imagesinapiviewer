@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
 	target: 'node',
 	devtool: 'inline-source-map',
-	entry: ['./src/components/MainPage.js'],
+	entry: ['./src/components/MainPageContainer.js'],
 	output: {
 		path: path.join(__dirname, 'src', 'static','js'),
 		filename: 'bundle.js',
