@@ -10,7 +10,7 @@ const buttonClickReducer = function (state, action) {
   }
    
   if (action.type === constants.kAction_ApiButtonClick) {
-    if (newstate[kState_ApiURL].includes('random')) {
+    if (newstate[kState_ApiURL] && newstate[kState_ApiURL].includes('random')) {
       newstate[kState_ApiResponse] = constants.kRandomResponse;
     } else {
       newstate[kState_ApiResponse] = constants.kNonRandomResponse;
@@ -18,7 +18,7 @@ const buttonClickReducer = function (state, action) {
     return newstate;
   } else if (action.type === constants.kAction_XpathButtonClick) {
     if (newstate[kState_Xpath] && newstate[kState_Xpath].length > 0) {
-      if (newstate[kState_ApiResponse] && newstate[kState_ApiResponse].length > 0) {
+      if (newstate[kState_ApiResponse] && Object.keys(newstate[kState_ApiResponse]).length) {
         let xpathStr = newstate[kState_Xpath];
         let strsArr = xpathStr.split("].");
         let arraysPath = strsArr[0].substring(1);
@@ -33,14 +33,23 @@ const buttonClickReducer = function (state, action) {
           }, this);
           newstate[kState_Imageurls] = imageURLsArr;
         } else {
-          alert("Please get api result before clicking here");
+          alert("Please give proper xpath");
         }
       } else {
-        alert("Please enter a valid Xpath");
+        alert("Please get api result before clicking here");        
       }
+    }else{
+      alert("Please enter a valid Xpath");
     }
+    return newstate;    
+  }else if(action.type === constants.kAction_EditApiURL){
+    newstate[kState_ApiURL] = action.text;
     return newstate;
-  }else{
+  }else if(action.type === constants.kAction_EditXPath){
+    newstate[kState_Xpath] = action.text;
+    return newstate;
+  }
+  else{    
     return newstate;
   }
 }

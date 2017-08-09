@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { kState_ApiResponse, kState_Imageurls } from '../constants/constants'
+
 /**
  * Props required for this component are -
  * 1. jsonResponse - JSON Dict which has to be displayed in the left side jsonBox
@@ -39,4 +42,11 @@ class BottomBox extends React.Component {
   }
 }
 
-export default BottomBox;
+function mapPropsToState(state){
+  return{
+    jsonResponse:state["buttonClickReducer"][kState_ApiResponse],
+    imageURLs : state["buttonClickReducer"][kState_Imageurls]
+  }  
+}
+
+export default connect(mapPropsToState,null)(BottomBox);

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import textInputEditedAction from '../actions/textInputEdited';
+import constants from '../constants/constants';
 
 /**
  * Props required for this Component are 
@@ -27,7 +30,13 @@ class InputWithTitle extends React.Component{
 
   tempOnInputTextChange(e){    
     // this.props.onInputTextChange(e);
+    if(e.currentTarget.id === 'API Endpoint'){
+      this.props.dispatch(textInputEditedAction(constants.kInputText_Api,e.currentTarget.value));
+    }else if(e.currentTarget.id === 'xPath with Format : [path_to_array].key_for_image'){
+      this.props.dispatch(textInputEditedAction(constants.kInputText_Xpath,e.currentTarget.value));
+    }
+    
   }
 }
 
-export default InputWithTitle;
+export default connect(null,null)(InputWithTitle);

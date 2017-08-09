@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import buttonClickedAction from '../actions/buttonClicked'
 
 /**
  * Props possible for MyButton are
@@ -11,12 +13,12 @@ class MyButton extends React.Component{
   render(){
       if(this.props.isApiCallHappening){
         return (
-          <input type="button" value={this.props.buttonTitle} className='MyButton disabled' onClick={ (e)=>{ this.props.buttonClicked(this.props.buttonTitle) } }>
+          <input type="button" value={this.props.buttonTitle} className='MyButton disabled' onClick={ (e)=>{ this.props.onSubmitClick(this.props.buttonTitle) } }>
           </input>
         );
       }else{
         return (
-          <input type="button" value={this.props.buttonTitle} className='MyButton' onClick={ (e)=>{ this.props.buttonClicked(this.props.buttonTitle) } }>
+          <input type="button" value={this.props.buttonTitle} className='MyButton' onClick={ (e)=>{ this.props.onSubmitClick(this.props.buttonTitle) } }>
           </input>
         );        
       }
@@ -24,4 +26,15 @@ class MyButton extends React.Component{
   }
 }
 
-export default MyButton;
+function mapDispatchToProps(dispatch){
+    return {
+       onSubmitClick : (inTitle)=>{
+        dispatch(buttonClickedAction(inTitle))
+       }
+    }
+  }
+
+export default connect(null,mapDispatchToProps)(MyButton);
+
+
+// export default MyButton;

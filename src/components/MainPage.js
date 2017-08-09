@@ -58,16 +58,6 @@ class MainPage extends React.Component{
     // );
   }
 
-  mapDispatchToProps(dispatch){
-    return {
-       onSubmitClick : (inTitle)=>{
-        dispatch(buttonClickedAction(inTitle))
-       }
-    }
-  }
-
-  tempMainPage = connect(mapDispatchToProps)(MyButton);
-
   handleClickOnCallApi() {
     // if (this.state.apiURL.length <= 0) {
     //   alert("Please enter a proper URL");
@@ -130,5 +120,4 @@ class MainPage extends React.Component{
 //   ReactDOM.render(<MainPage/>,document.getElementById('main'));
 // }
 
-export const tempMainPage;
 export default MainPage;

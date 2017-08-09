@@ -13,6 +13,10 @@ class MainPageContainer extends React.Component{
 
 window.onload = ()=>{    
   let the_store = createStore(CombinedReducer);
+  the_store.subscribe(()=>{
+    let the_state = the_store.getState();
+    console.log("Current State is : ", JSON.stringify(the_state));
+  });
   render(
     <Provider store={the_store} >
       <MainPageContainer />

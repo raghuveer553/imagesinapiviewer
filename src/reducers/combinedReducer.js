@@ -4,8 +4,8 @@ import textInputEditReducer from './textInputEditReducer';
 import { combineReducers } from 'redux';
 
 const combinedReducers = combineReducers({
-  buttonClickReducer:buttonClickReducer,
-  textInputEditReducer:textInputEditReducer
+  buttonClickReducer,
+  textInputEditReducer
 });
 
 export default combinedReducers;
