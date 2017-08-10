@@ -16,6 +16,9 @@ const buttonClickReducer = function (state, action) {
       newstate[kState_ApiResponse] = constants.kNonRandomResponse;
     }
     return newstate;
+  } else if(action.type === constants.kAction_ApiResulted){
+    newstate[kState_ApiResponse] = action.jsonResponse;
+    return newstate;
   } else if (action.type === constants.kAction_XpathButtonClick) {
     if (newstate[kState_Xpath] && newstate[kState_Xpath].length > 0) {
       if (newstate[kState_ApiResponse] && Object.keys(newstate[kState_ApiResponse]).length) {

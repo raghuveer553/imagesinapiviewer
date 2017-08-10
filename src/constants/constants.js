@@ -813,7 +813,8 @@ const constantsObj = {
   kButton_Api:"Button_Api",
   kButton_Xpath:"Button_Xpath",
   kAction_ApiButtonClick:"Action_ApiButtonClick",
-  kAction_XpathButtonClick:"Action_XpathButtonClick"
+  kAction_XpathButtonClick:"Action_XpathButtonClick",
+  kAction_ApiResulted:"Action_ApiResulted"
 }
 
 export const kState_ApiURL = "State_ApiURL";

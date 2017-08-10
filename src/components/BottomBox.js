@@ -13,7 +13,7 @@ class BottomBox extends React.Component {
     if (this.props.imageURLs && this.props.imageURLs.length > 0) {
       let images = [];
       for(let i=0; i<this.props.imageURLs.length;i++){
-        let imageDiv = <img src={this.props.imageURLs[i]} alt="Mountain View" style={{width:150, height:150}} ></img> ;
+        let imageDiv = <img key={i.toString()} src={this.props.imageURLs[i]} alt="Mountain View" style={{width:150, height:150}} ></img> ;
         images.push(imageDiv);
       }      
       return (
