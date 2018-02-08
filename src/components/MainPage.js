@@ -8,6 +8,8 @@ import axios from 'axios';
 import BottomBox from './BottomBox';
 import InputWithTitle from './InputWithTitle';
 import MyButton from './MyButton';
+import UIPracticeCont from './UIPracticeCont';
+
 import buttonClickedAction from '../actions/buttonClicked'
 import constants from '../constants/constants'
 
@@ -39,6 +41,7 @@ class MainPage extends React.Component{
         </MyButton>
       </div>
       <BottomBox />
+      <UIPracticeCont />
       </div>
     );
 

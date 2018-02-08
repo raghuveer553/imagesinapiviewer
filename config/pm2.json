@@ -1,0 +1,29 @@
+{
+  "apps": [{
+      "name": "imagesinapiviewer",
+      "ignore_watch": ["node_modules","assets", "public","db.sqlite",".git", "imagesinapiviewer-app.log","uploads", "uploads/feed/*"],
+      "script": "index.js",
+      "log_file": "./imagesinapiviewer-app.log",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "env": {
+          "NODE_ENV": "development",
+          "watch": true,
+          "APP_HOST" :"http://localhost:4000"
+      },
+      "env_staging": {
+          "name":"imagesinapiviewer-app-stage",
+          "NODE_ENV": "staging",
+          "PORT": 4000, 
+          "log_date_format": "YYYY-MM-DD HH:mm Z",
+          "APP_HOST" :"http://localhost:4000"
+      },
+      "env_production": {
+          "name":"imagesinapiviewer-app-prod",
+          "NODE_ENV": "production",
+          "PORT": 4000, 
+          "log_date_format": "YYYY-MM-DD HH:mm Z",
+          "APP_HOST" :"http://localhost:4000"
+      }
+  }]
+}
